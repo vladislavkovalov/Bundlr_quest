@@ -13,7 +13,6 @@ const EditCoverPicture = ({ profile }) => {
 		error: updateError,
 		isPending: isUpdatePending,
 	} = useUpdateProfileDetails({ profile, upload });
-
 	// Called when the user drags and drops a file into the upload zone
 	const handleFile = async (e) => {
 		const newFiles = e.target.files;

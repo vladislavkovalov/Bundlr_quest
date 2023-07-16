@@ -1,6 +1,5 @@
 import { getBundlr } from "./get-bundlr";
 
-
 export const fundNode = async (fundAmount) => {
 	try {
 		const bundlr = await getBundlr();	

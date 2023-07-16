@@ -33,5 +33,4 @@ const Publication = ({ id, content, description, media, publisher }) => {
 		</div>
 	);
 };
-
 export default Publication;

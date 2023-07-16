@@ -21,7 +21,6 @@ const SuggestedProfile = ({ handle }) => {
 					src={coverPicture}
 				/>
 			)}
-
 			<div className="h-32 w-full ">
 				<div className="mx-2 mt-2 flex flex-row bg-secondary opacity-90 rounded-xl">
 					{profilePicture && (

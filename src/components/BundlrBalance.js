@@ -6,7 +6,6 @@ const BundlrBalance = () => {
 	const [curBalance, setCurBalance] = useState(0);
 	const [fundAmount, setFundAmount] = useState(0);
 	const [message, setMessage] = useState("");
-
 	useEffect(() => {
 		const fetchBalance = async () => {
 			setCurBalance(await getBalanceMatic());

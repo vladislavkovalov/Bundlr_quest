@@ -38,7 +38,6 @@ export const compressImage = async (file, maxSize) => {
 				resolve(compressedFile);
 			}, file.type);
 		};
-
 		image.onerror = () => {
 			reject(new Error("Failed to load image"));
 		};

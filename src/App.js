@@ -20,7 +20,6 @@ const client = createClient({
 	provider,
 	webSocketProvider,
 });
-
 const lensConfig = {
 	bindings: wagmiBindings(),
 	environment: staging,

@@ -20,7 +20,6 @@ const ContentFeedPage = () => {
 		profileId: activeProfile?.id,
 		limit: 10,
 	});
-
 	return (
 		<div className="flex flex-col w-3/6 bg-background px-5">
 			{!isConnected && (

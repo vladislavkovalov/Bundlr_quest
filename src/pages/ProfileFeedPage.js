@@ -29,7 +29,6 @@ const ProfileFeedPage = () => {
 		if (profile) {
 			let profilePictureURL = profile.picture?.original.url;
 			let coverPictureURL = profile.coverPicture?.original.url;
-
 			setProfilePicture(profilePictureURL);
 			setCoverPicture(coverPictureURL);
 			setFollowing(profile.__isFollowedByMe);

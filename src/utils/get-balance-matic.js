@@ -1,6 +1,5 @@
 import { getBundlr } from "./get-bundlr";
 
-
 export const getBalanceMatic = async () => {
 	try {
 		const bundlr = await getBundlr();

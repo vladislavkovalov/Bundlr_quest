@@ -23,7 +23,6 @@ export const upload = async (data) => {
 		});
 	
 		console.log(`Json uploaded success content to https://arweave.net/${tx.id}`);
-	
 		return "https://arweave.net/"+ tx.id;
 	} 
 	catch(e) {

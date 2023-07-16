@@ -19,7 +19,6 @@ const EditProfilePicture = ({ profile }) => {
 	const handleFile = async (e) => {
 		const newFiles = e.target.files;
 		if (newFiles.length === 0) return;
-
 		setFileToUpload(newFiles[0]);
 		setFileType(newFiles[0]["type"]);
 	};

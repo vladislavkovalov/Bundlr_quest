@@ -49,7 +49,6 @@ function FollowButton({ followee, follower }) {
 			</>
 		);
 	}
-
 	return (
 		<>
 			<button

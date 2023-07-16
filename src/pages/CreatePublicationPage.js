@@ -8,7 +8,6 @@ import { SiSpringCreators } from "react-icons/si";
 const CreatePublication = () => {
 	const { data: activeProfile, loading: profileLoading } = useActiveProfile();
 	const { isConnected } = useAccount();
-
 	return (
 		<div className="flex flex-col w-3/6 bg-background px-5">
 			{!isConnected && (

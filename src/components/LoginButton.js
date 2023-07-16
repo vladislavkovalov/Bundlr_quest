@@ -23,7 +23,6 @@ const LoginButton = () => {
 			await login(signer);
 		}
 	};
-
 	return (
 		<div>
 			{loginError && <p>{loginError}</p>}

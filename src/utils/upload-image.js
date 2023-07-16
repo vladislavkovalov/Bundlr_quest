@@ -17,7 +17,6 @@ export const uploadImage = async (fileToUpload, fileType) => {
 	  else {
 		console.log("Funding not needed, balance sufficient :)");
 	  }
-  
 	  const tx = await bundlr.upload(dataStream, {
 		tags: [{ name: "Content-Type", value: fileType }],
 	  });

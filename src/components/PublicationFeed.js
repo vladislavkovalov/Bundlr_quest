@@ -19,5 +19,4 @@ const PublicationFeed = ({ profile }) => {
       })}
   </div>;
 };
-
 export default PublicationFeed;

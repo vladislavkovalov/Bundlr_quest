@@ -32,7 +32,6 @@ const EditProfileDetails = ({ profile }) => {
 		isPending: isUpdateFollowPolicyPending,
 		error: isUpdateFollowPolicyError,
 	} = useUpdateFollowPolicy({ profile });
-
 	useEffect(() => {
 		if (profile) {
 			setName(profile.name);

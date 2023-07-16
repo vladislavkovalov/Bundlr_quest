@@ -39,5 +39,4 @@ const EditProfile = () => {
 		</div>
 	);
 };
-
 export default EditProfile;

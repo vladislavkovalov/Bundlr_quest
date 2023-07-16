@@ -16,7 +16,6 @@ const ProfileSwitcher = ({ showCreateNew }) => {
 		error: createNewProfileError,
 		isPending: createNewProfilePending,
 	} = useCreateProfile();
-
 	// Called when the user clicks "save new profile"
 	const doCreateProfile = async () => {
 		setMessage("");

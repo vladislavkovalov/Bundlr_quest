@@ -24,7 +24,6 @@ const PublicationComposer = ({ publisher }) => {
 		setFileToUpload(newFiles[0]);
 		setFileType(newFiles[0]["type"]);
 	};
-
 	// Called when the user clicks "Post"
 	const createPublication = async () => {
 		setTxActive(true);

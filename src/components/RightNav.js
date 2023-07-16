@@ -19,7 +19,7 @@ const RightNav = () => {
 			"llamafigurine.test",
 			"llamabasquiat.test",
 		];
-		// Shuffle the order
+		// Shuffle the orde
 		for (let i = profiles.length - 1; i > 0; i--) {
 			const j = Math.floor(Math.random() * (i + 1));
 			[profiles[i], profiles[j]] = [profiles[j], profiles[i]];
