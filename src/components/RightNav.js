@@ -12,6 +12,7 @@ const RightNav = () => {
 		// Hardcoded list of profiles to follow
 		// BUILDOOOORS: Add your own profiles to this list
 		const profiles = [
+			"AlexHuk.test",
 			"llamakahlo.test",
 			"llamaanime.test",
 			"llamablackandwhite.test",

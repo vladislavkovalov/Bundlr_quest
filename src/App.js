@@ -24,7 +24,7 @@ const client = createClient({
 const lensConfig = {
 	bindings: wagmiBindings(),
 	environment: staging,
-	sources: ["onlybundlr"],
+	sources: ["onlybundlr"]
 };
 
 function App() {

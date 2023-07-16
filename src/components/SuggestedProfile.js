@@ -7,20 +7,11 @@ const SuggestedProfile = ({ handle }) => {
 	const [coverPicture, setCoverPicture] = useState("");
 
 	useEffect(() => {
-		const fetchData = async () => {
-			try {
-			  const { profilePictureUrl, coverPictureUrl } = await getProfileImages(handle);
-			  setProfilePicture(profilePictureUrl);
-			  setCoverPicture(coverPictureUrl);
-			} catch (error) {
-			  console.log("Error fetching profile images:", error);
-			}
-		  };
-		
-		  if (!loading) {
-			fetchData();
-		  }
-	}, [handle,loading]);
+		if (profile) {
+			setProfilePicture(profile.picture?.original.url)
+			setCoverPicture(profile.coverPicture?.original.url)
+		}
+	}, [loading]);
 
 	return (
 		<div className="relative" key={profile?.id}>

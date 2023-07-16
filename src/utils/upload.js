@@ -3,17 +3,18 @@ import { getBundlr } from "./get-bundlr";
 
 export const upload = async (data) => {
 	data.appId = "onlybundlr";
+	const bundlr = await getBundlr();
 	try {
-		const bundlr = await getBundlr();
 		const serialized = JSON.stringify(data);
 	
 		const price = await bundlr.getPrice(new Blob([serialized]).size);
 		const balance = await bundlr.getLoadedBalance();
 	
 		if (price.isGreaterThanOrEqualTo(balance)) {
-		  console.log("Funding.");
+		  console.log("Funding");
 		  await bundlr.fund(price);
-		} else {
+		} 
+		else {
 		  console.log("Funding not needed, balance sufficient.");
 		}
 	
@@ -21,11 +22,11 @@ export const upload = async (data) => {
 		  tags: [{ name: "Content-Type", value: "application/json" }],
 		});
 	
-		console.log(`Upload success content URI = https://arweave.net/${tx.id}`);
+		console.log(`Json uploaded success content to https://arweave.net/${tx.id}`);
 	
-		return `https://arweave.net/${tx.id}`;
-	  } catch (e) {
-		console.log("Error on upload: ", e);
-	  }
-	  return "";
+		return "https://arweave.net/"+ tx.id;
+	} 
+	catch(e) {
+		console.log("Error on upload: "+e);
+	}
 };

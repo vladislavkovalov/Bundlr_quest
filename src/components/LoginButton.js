@@ -14,11 +14,14 @@ const LoginButton = () => {
 
 	// Called when the user clicks "login"
 	const onLoginClick = async () => {
-		try {
-			await connectAsync();
-		  } catch (error) {
-			console.log("Error connecting wallet:", error);
-		  }
+		if (isConnected) {
+			await disconnectAsync();
+		}
+		const {connector} = await connectAsync();
+		if (connector instanceof InjectedConnector) {
+			const signer = await connector.getSigner();
+			await login(signer);
+		}
 	};
 
 	return (

@@ -27,20 +27,61 @@ const PublicationComposer = ({ publisher }) => {
 
 	// Called when the user clicks "Post"
 	const createPublication = async () => {
-		try {
-			setTxActive(true);
-			const metadata = {
-			  caption: caption,
-			  image: await uploadImage(fileToUpload, fileType),
-			};
-			await create(metadata);
-			setMessage("Publication created successfully");
-		  } catch (e) {
-			console.log("Error creating publication: ", e);
-			setMessage("Failed to create publication");
-		  } finally {
-			setTxActive(false);
-		  }
+		setTxActive(true);
+		setMessage("");
+		if(fileToUpload){
+			setMessage("Uploading image ...");
+			const imageUrl = await uploadImage(fileToUpload, fileType);
+
+			setMessage("Uploading metadataamd posting to Lens");
+			try {
+				await create({
+					content:caption,
+					ContentFocus: ContentFocus.IMAGE,
+					locale: "en",
+					collect: {
+						type: CollectPolicyType.NO_COLLECT,
+					},
+					reference: {
+						type: ReferencePolicyType.FOLLOWERS_ONLY
+					},
+					media: [
+						{
+							url: imageUrl,
+							mimeType: fileType
+						},
+					],
+				});
+				setCaption("");
+				setFileToUpload(null);
+				setFileType("");
+				setMessage("Publication posted");
+			}
+			catch(e) {
+				console.log("error creating post")
+			}
+		}
+		else {
+			setMessage("Creating text publication");
+			try{
+				await create({
+					content: caption,
+					contentFocus: ContentFocus.TEXT,
+					locale: "en",
+					reference: {
+						type: ReferencePolicyType.FOLLOWERS_ONLY
+					},
+				})
+				setCaption("");
+				setFileToUpload(null);
+				setFileType("");
+				setMessage("Publication posted");
+			}
+			catch(e) {
+				console.log("error creating post")
+			}
+		}
+		setTxActive(false);
 	};
 
 	return (

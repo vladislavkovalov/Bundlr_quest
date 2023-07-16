@@ -8,4 +8,3 @@ export const getBundlr = async () => {
 	await bundlr.ready();
 	return bundlr;
 };
-const bundlr = await getBundlr();

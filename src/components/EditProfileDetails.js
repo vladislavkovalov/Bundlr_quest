@@ -77,7 +77,8 @@ const EditProfileDetails = ({ profile }) => {
 		if (fileToUpload) {
 			setMessage("Uploading cover picture ...");
 			coverPicture = await uploadImage(fileToUpload, fileType);
-		} else {
+		} 
+		else {
 			coverPicture = profile.coverPicture?.original.url || null;
 		}
 		const attributes = {
@@ -87,13 +88,14 @@ const EditProfileDetails = ({ profile }) => {
 		setMessage("Uploading profile information ...");
 	 
 		await update({ name, bio, coverPicture, attributes });
-		setMessage("Profile updated.");
-		setTxActive(false);
-	 
-		// only set the fee if a number greater than 0 is supplied
+		
 		if (followFee && followFee > 0) {
 			await doUploadFollowPolicy();
 		}
+		setMessage("Profile updated.");
+		setTxActive(false);
+		
+
 	};
 
 	// Sets up the follow policy object
@@ -105,7 +107,6 @@ const EditProfileDetails = ({ profile }) => {
 			recipient: recipient,
 		};
 	}
- 
 	return {
 		type: FollowPolicyType[followPolicyType],
 	};

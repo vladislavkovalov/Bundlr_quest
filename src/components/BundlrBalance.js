@@ -17,17 +17,16 @@ const BundlrBalance = () => {
 	// Called when the "fund" button is clicked by the user
 	const doFund = async () => {
 		if (!fundAmount) {
-			setMessage("Please specify an amount to fund");
+			setMessage("First, please specify an amount to fund");
 			return;
-		  }
+		}
 	  
-		  setMessage(`Funding ${fundAmount} MATIC`);
+		setMessage(`Funding ${fundAmount} MATIC`);
+		const fundStatus = await fundNode(fundAmount);
+		setCurBalance(await getBalanceMatic());
+		setFundAmount(0);
+		setMessage(`Successfully funded ${fundAmount} MATIC`);
 	  
-		  const fundStatus = await fundNode(fundAmount);
-		  setMessage(fundStatus);
-	  
-		  setCurBalance(await getBalanceMatic());
-		  setFundAmount(0);
 	};
 
 	return (

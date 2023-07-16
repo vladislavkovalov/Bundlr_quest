@@ -26,15 +26,25 @@ const EditProfilePicture = ({ profile }) => {
 
 	// Called when the user clicks "upload"
 	const doUpdateProfilePicture = async () => {
+		setMessage("");
+		setTxActive(true);
+		if (!fileToUpload) {
+			setMessage("Please select an image first");
+			setTxActive(false);
+			return;
+		}
 		try {
-			setMessage("Uploading profile picture...");
+			setMessage("Uploading profile image...");
 			const newProfileURL = await uploadImage(fileToUpload, fileType);
 			await updateProfileImage(newProfileURL);
-			setMessage("Profile picture updated successfully!");
-		  } catch (error) {
-			setMessage("Error updating profile picture");
-			console.log("Error updating profile picture:", error);
-		  }
+			setMessage("Profile image updated successfully!");
+		} 
+		catch (e) {
+			setMessage("Error updating profile image");
+			console.log("Error updating profile image:", e);
+		}
+		setMessage("Profile image updated");
+		setTxActive(false);
 	};
 
 	return (

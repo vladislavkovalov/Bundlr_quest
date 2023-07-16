@@ -52,15 +52,14 @@ const ContentFeedPage = () => {
 						))}
 					{feed &&
 						feed.map((publication, id) => {
-							return (
-								<Publication
+							return (<Publication
 									key={publication.root.id}
 									content={publication.root.metadata?.content}
 									description={publication.root.metadata?.description}
 									media={publication.root.metadata?.media}
 									publisher={publication.root.profile}
-								/>
-							);
+								/>		
+							);		
 						})}
 				</div>
 			)}

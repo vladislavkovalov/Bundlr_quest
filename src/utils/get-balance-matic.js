@@ -9,5 +9,4 @@ export const getBalanceMatic = async () => {
 	  } catch (e) {
 		console.log("Error on getBalanceMatic ", e);
 	  }
-	  return "";
 };
